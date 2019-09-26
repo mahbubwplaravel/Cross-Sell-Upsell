@@ -596,3 +596,4 @@ if ( ! class_exists( 'YITH_WACP_Frontend_Premium' ) ) {
 function YITH_WACP_Frontend_Premium(){
 	return YITH_WACP_Frontend_Premium::get_instance();
 }
+

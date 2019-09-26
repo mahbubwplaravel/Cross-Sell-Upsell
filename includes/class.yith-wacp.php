@@ -135,6 +135,7 @@ if ( ! class_exists( 'YITH_WACP' ) ) {
          * @return boolean
          */
         public function load_frontend(){
+	        
 	        $is_one_click = isset( $_REQUEST['_yith_wocc_one_click'] ) && $_REQUEST['_yith_wocc_one_click'] == 'is_one_click';
 	        $load = ( ! wp_is_mobile() || get_option( 'yith-wacp-enable-mobile' ) != 'no' ) && ! $is_one_click;
 	        return apply_filters( 'yith_wacp_check_load_frontend', $load );
