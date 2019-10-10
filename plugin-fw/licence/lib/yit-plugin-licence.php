@@ -55,27 +55,27 @@ if ( !class_exists( 'YIT_Plugin_Licence' ) ) {
          * @since    1.0
          * @author   Andrea Grillo <andrea.grillo@yithemes.com>
          */
-        public function __construct() {
-            parent::__construct();
+        // public function __construct() {
+        //     parent::__construct();
 
-            if ( !is_admin() ) {
-                return;
-            }
+        //     if ( !is_admin() ) {
+        //         return;
+        //     }
 
-            $this->_settings = array(
-                'parent_page' => 'yit_plugin_panel',
-                'page_title'  => __( 'License Activation', 'yith-plugin-fw' ),
-                'menu_title'  => __( 'License Activation', 'yith-plugin-fw' ),
-                'capability'  => 'manage_options',
-                'page'        => 'yith_plugins_activation',
-            );
+        //     $this->_settings = array(
+        //         'parent_page' => 'yit_plugin_panel',
+        //         'page_title'  => __( 'License Activation', 'yith-plugin-fw' ),
+        //         'menu_title'  => __( 'License Activation', 'yith-plugin-fw' ),
+        //         'capability'  => 'manage_options',
+        //         'page'        => 'yith_plugins_activation',
+        //     );
 
-            add_action( 'admin_menu', array( $this, 'add_submenu_page' ), 99 );
-            add_action( "wp_ajax_yith_activate-{$this->_product_type}", array( $this, 'activate' ) );
-            add_action( "wp_ajax_yith_deactivate-{$this->_product_type}", array( $this, 'deactivate' ) );
-            add_action( "wp_ajax_yith_update_licence_information-{$this->_product_type}", array( $this, 'update_licence_information' ) );
-            add_action( 'yit_licence_after_check', array( $this, 'licence_after_check' ) );
-        }
+        //     add_action( 'admin_menu', array( $this, 'add_submenu_page' ), 99 );
+        //     add_action( "wp_ajax_yith_activate-{$this->_product_type}", array( $this, 'activate' ) );
+        //     add_action( "wp_ajax_yith_deactivate-{$this->_product_type}", array( $this, 'deactivate' ) );
+        //     add_action( "wp_ajax_yith_update_licence_information-{$this->_product_type}", array( $this, 'update_licence_information' ) );
+        //     add_action( 'yit_licence_after_check', array( $this, 'licence_after_check' ) );
+        // }
 
 
         public function licence_after_check() {

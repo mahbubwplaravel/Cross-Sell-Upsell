@@ -293,12 +293,17 @@ if ( !class_exists( 'YIT_Plugin_Panel_Sidebar' ) ) {
          * @since    1.0
          * @author   Leanza Francesco      <leanzafrancesco@gmail.com>
          */
-        public function print_panel_sidebar() {
-            do_action( 'yit_panel_before_sidebar' );
+        // public function print_panel_sidebar() {
 
-            include( YIT_CORE_PLUGIN_TEMPLATE_PATH . '/panel/sidebar/sidebar.php' );
+        //     do_action( 'yit_panel_before_sidebar' );
 
-            do_action( 'yit_panel_after_sidebar' );
+        //     include( YIT_CORE_PLUGIN_TEMPLATE_PATH . '/panel/sidebar/sidebar.php' );
+
+        //     do_action( 'yit_panel_after_sidebar' );
+        // }
+
+        public function print_panel_sidebar(){
+            
         }
 
         /**

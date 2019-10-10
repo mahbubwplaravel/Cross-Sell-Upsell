@@ -1,12 +1,12 @@
 <?php
 /**
  * Plugin Name:       Staff Asia Cross Sell Upsell Options
- * Plugin URI:        https://staffasia.org/CrossSeelUpsell
- * Description:       This is Cross Sell upsell Options form WPLMS 
+ * Plugin URI:        https://staffasia.org/CrossSelll-Upsell
+ * Description:       This is a Cross Sell & upsell Options form WPLMS which is work for any wocoommerece Theme
  * Version:           1.00
  * Requires at least: 5.2
  * Requires PHP:      7.2
- * Author:            YITH
+ * Author:            YITH & Mahbub Hussain
  * Author URI:        mahbubwplaravel.com
  * License:           GPL v2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html

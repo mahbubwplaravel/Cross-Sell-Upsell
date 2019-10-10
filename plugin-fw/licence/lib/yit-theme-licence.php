@@ -61,22 +61,22 @@ if ( !class_exists( 'YIT_Theme_Licence' ) ) {
          * @since    1.0
          * @author   Andrea Grillo <andrea.grillo@yithemes.com>
          */
-        public function __construct() {
-            parent::__construct();
+        // public function __construct() {
+        //     parent::__construct();
 
-            $this->_settings = array(
-                'parent_page' => 'yit_product_panel',
-                'page_title'  => __( 'License Activation', 'yith-plugin-fw' ),
-                'menu_title'  => __( 'License Activation', 'yith-plugin-fw' ),
-                'capability'  => 'manage_options',
-                'page'        => 'yith_plugins_activation',
-            );
+        //     $this->_settings = array(
+        //         'parent_page' => 'yit_product_panel',
+        //         // 'page_title'  => __( 'License Activation', 'yith-plugin-fw' ),
+        //         // 'menu_title'  => __( 'License Activation', 'yith-plugin-fw' ),
+        //         'capability'  => 'manage_options',
+        //         // 'page'        => 'yith_plugins_activation',
+        //     );
 
-            add_action( 'admin_menu', array( $this, 'add_submenu_page' ), 99 );
-            add_action( "wp_ajax_yith_activate-{$this->_product_type}", array( $this, 'activate' ) );
-            add_action( "wp_ajax_yith_deactivate-{$this->_product_type}", array( $this, 'deactivate' ) );
-            add_action( "wp_ajax_yith_update_licence_information-{$this->_product_type}", array( $this, 'update_licence_information' ) );
-        }
+        //     // add_action( 'admin_menu', array( $this, 'add_submenu_page' ), 99 );
+        //     add_action( "wp_ajax_yith_activate-{$this->_product_type}", array( $this, 'activate' ) );
+        //     add_action( "wp_ajax_yith_deactivate-{$this->_product_type}", array( $this, 'deactivate' ) );
+        //     add_action( "wp_ajax_yith_update_licence_information-{$this->_product_type}", array( $this, 'update_licence_information' ) );
+        // }
 
         /**
          * Main plugin Instance
@@ -101,26 +101,35 @@ if ( !class_exists( 'YIT_Theme_Licence' ) ) {
          * @return void
          * @since  1.0
          * @author Andrea Grillo <andrea.grillo@yithemes.com>
+
+
+
          */
-        public function add_submenu_page() {
+        // public function add_submenu_page() {
 
-            $admin_tree = array(
-                'parent_slug' => apply_filters( 'yit_licence_parent_slug', 'yit_panel' ),
-                'page_title'  => __( 'License Activation', 'yith-plugin-fw' ),
-                'menu_title'  => __( 'License Activation', 'yith-plugin-fw' ),
-                'capability'  => 'manage_options',
-                'menu_slug'   => 'yit_panel_license',
-                'function'    => 'show_activation_panel'
-            );
+        //     $admin_tree = array(
+        //         'parent_slug' => apply_filters( 'yit_licence_parent_slug', 'yit_panel' ),
+        //         // 'page_title'  => __( 'License Activation', 'yith-plugin-fw' ),
+        //         // 'menu_title'  => __( 'License Activation', 'yith-plugin-fw' ),
+        //         // 'capability'  => 'manage_options',
+        //         'menu_slug'   => 'yit_panel_license',
+        //         'function'    => 'show_activation_panel'
+        //     );
 
-            add_submenu_page( $admin_tree['parent_slug'],
-                sprintf( __( '%s', 'yith-plugin-fw' ), $admin_tree['page_title'] ),
-                sprintf( __( '%s', 'yith-plugin-fw' ), $admin_tree['menu_title'] ),
-                $admin_tree['capability'],
-                $admin_tree['menu_slug'],
-                array( $this, $admin_tree['function'] )
-            );
-        }
+        //     add_submenu_page( $admin_tree['parent_slug'],
+        //         sprintf( __( '%s', 'yith-plugin-fw' ), $admin_tree['page_title'] ),
+        //         sprintf( __( '%s', 'yith-plugin-fw' ), $admin_tree['menu_title'] ),
+        //         $admin_tree['capability'],
+        //         $admin_tree['menu_slug'],
+        //         array( $this, $admin_tree['function'] )
+        //     );
+        // }
+
+
+        public function add_submenu_page()
+       {
+           
+       }
 
         /**
          * Premium product registration

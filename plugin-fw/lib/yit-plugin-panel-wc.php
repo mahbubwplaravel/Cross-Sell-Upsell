@@ -154,6 +154,11 @@ if ( ! class_exists( 'YIT_Plugin_Panel_WooCommerce' ) ) {
             }
         }
 
+
+        public function add_premium_version_upgrade_to_menu(){
+        
+        }
+
 	    /**
 	     * Add the plugin woocommerce page settings in the screen ids of woocommerce
 	     *

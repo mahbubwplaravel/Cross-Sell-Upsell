@@ -58,7 +58,7 @@ if ( ! class_exists( 'YITH_WACP_Admin' ) ) {
 		/**
 		 * @var string Premium version landing link
 		 */
-		protected $_premium_landing = 'https://yithemes.com/themes/plugins/yith-woocommerce-added-to-cart-popup';
+		//protected $_premium_landing = 'https://yithemes.com/themes/plugins/yith-woocommerce-added-to-cart-popup';
 
 		/**
 		 * @var string Added to Cart Popup panel page
@@ -120,9 +120,9 @@ if ( ! class_exists( 'YITH_WACP_Admin' ) ) {
 		 */
 		public function action_links( $links ) {
 			$links[] = '<a href="' . admin_url( "admin.php?page={$this->_panel_page}" ) . '">' . __( 'Settings', 'yith-woocommerce-added-to-cart-popup' ) . '</a>';
-			if ( ! ( defined( 'YITH_WACP_PREMIUM' ) && YITH_WACP_PREMIUM ) ) {
-				$links[] = '<a href="' . $this->get_premium_landing_uri() . '" target="_blank">' . __( 'Premium Version', 'yith-woocommerce-added-to-cart-popup' ) . '</a>';
-			}
+			// if ( ! ( defined( 'YITH_WACP_PREMIUM' ) && YITH_WACP_PREMIUM ) ) {
+			// 	$links[] = '<a href="' . $this->get_premium_landing_uri() . '" target="_blank">' . __( 'Premium Version', 'yith-woocommerce-added-to-cart-popup' ) . '</a>';
+			// }
 
 			return $links;
 		}
@@ -143,18 +143,18 @@ if ( ! class_exists( 'YITH_WACP_Admin' ) ) {
 			}
 
 			$admin_tabs = array(
-				'general' => __( 'Settings', 'yith-woocommerce-added-to-cart-popup' ),
+				'general' => __( 'Customize Settings Options', 'yith-woocommerce-added-to-cart-popup' ),
 			);
 
-			if ( ! ( defined( 'YITH_WACP_PREMIUM' ) && YITH_WACP_PREMIUM ) ) {
-				$admin_tabs['premium'] = __( 'Premium Version', 'yith-woocommerce-added-to-cart-popup' );
-			}
+			// if ( ! ( defined( 'YITH_WACP_PREMIUM' ) && YITH_WACP_PREMIUM ) ) {
+			// 	$admin_tabs['premium'] = __( 'Premium Versions', 'yith-woocommerce-added-to-cart-popup' );
+			// }
 
 			$args = array(
 				'create_menu_page' => true,
 				'parent_slug'      => '',
-				'page_title'       => _x( 'Added to Cart Popup', 'Plugin name', 'yith-woocommerce-added-to-cart-popup' ),
-				'menu_title'       => _x( 'Added to Cart Popup', 'Plugin name', 'yith-woocommerce-added-to-cart-popup' ),
+				'page_title'       => _x( 'Settings', 'Plugin name', 'yith-woocommerce-added-to-cart-popup' ),
+				'menu_title'       => _x( 'Settings', 'Plugin name', 'yith-woocommerce-added-to-cart-popup' ),
 				'capability'       => 'manage_options',
 				'parent'           => '',
 				'parent_page'      => 'yit_plugin_panel',
@@ -192,6 +192,10 @@ if ( ! class_exists( 'YITH_WACP_Admin' ) ) {
 
 		}
 
+		// public function premium_tab(){
+			
+		// }
+
 		/**
 		 * plugin_row_meta
 		 *
@@ -210,11 +214,13 @@ if ( ! class_exists( 'YITH_WACP_Admin' ) ) {
 		public function plugin_row_meta( $plugin_meta, $plugin_file, $plugin_data, $status ) {
 
 			if ( defined( 'YITH_WACP_INIT') && YITH_WACP_INIT == $plugin_file ) {
-				$plugin_meta[] = '<a href="' . $this->doc_url . '" target="_blank">' . __( 'Plugin Documentation', 'yith-woocommerce-added-to-cart-popup' ) . '</a>';
+				$plugin_meta[] = '';
 			}
 
 			return $plugin_meta;
 		}
+
+
 
 		/**
 		 * Get the premium landing uri
@@ -234,54 +240,12 @@ if ( ! class_exists( 'YITH_WACP_Admin' ) ) {
  * @return \YITH_WACP_Admin
  * @since 1.0.0
  */
-// function YITH_WACP_Admin(){
-// 	return YITH_WACP_Admin::get_instance();
-// }
-
 function YITH_WACP_Admin(){
 	return YITH_WACP_Admin::get_instance();
 }
 
+// function YITH_WACP_Admin(){
+// 	return YITH_WACP_Admin::get_instance();
+// }
 
 
-public function wp_popular_term_list($taxonomy, $default = 0, $number = 10, $echo = true ){
-
-	$post = get_post();
-	if($post && $post->ID){
-     $check_terms = wp_get_object_terms($post->ID, $taxonomy, array( 'fields' => 'ids' ));
-	}
-	else{
-		  $checked_terms = array();
-	}
-
-	$terms  = get_terms(
-     $taxonomy,
-     array(
-       'orderby' =>'count',
-       'order'  =>'DESC',
-       'number' =>$number,
-       'hierarchical'=>false
-     ));
-
-	$tax = get_taxonomy( $taxonomy );
-
-	$popular_ids = array();
-   
-    foreach ((array) as $terms as $term) {
-        $popular_ids[] = $term->term_id;
-        if(!$echo){
-            continue;
-        }
-        $id = "popular-$taxonomy-$term->$term_id";
-        $checked = in_array($term->term_id,$check_terms)?'checked="checked"':'';
-        ?>
-           <li id="<?php echo $id;?>" class="popular-category">
-           	<label for="" class="selectit">
-           		<input id="in-<?php echo $id; ?>" type="checkbox" <?php echo $checked; ?> value="<?php echo (int) $term->term_id;  ?>" <?php disabled(!current_user_can( $tax->cap->assign_terms )); ?> name="">
-           	</label>
-           </li>
-        <?php 
-
-    }
-
-}

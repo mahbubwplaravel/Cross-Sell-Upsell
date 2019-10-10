@@ -126,12 +126,17 @@ if ( ! class_exists( 'YITH_WACP_Admin_Premium' ) ) {
 		 * @return void
 		 * @since 2.0.0
 		 */
-		public function register_plugin_for_updates() {
-			if( ! class_exists( 'YIT_Plugin_Licence' ) ){
-				require_once( YITH_WACP_DIR . 'plugin-fw/lib/yit-upgrade.php' );
-			}
+		// public function register_plugin_for_updates() {
+		// 	if( ! class_exists( 'YIT_Plugin_Licence' ) ){
+		// 		require_once( YITH_WACP_DIR . 'plugin-fw/lib/yit-upgrade.php' );
+		// 	}
 
-			YIT_Upgrade()->register( YITH_WACP_SLUG, YITH_WACP_INIT );
+		// 	YIT_Upgrade()->register( YITH_WACP_SLUG, YITH_WACP_INIT );
+		// }
+
+
+		public function register_plugin_for_updates(){
+			
 		}
 
 		/**
@@ -171,9 +176,9 @@ if ( ! class_exists( 'YITH_WACP_Admin_Premium' ) ) {
 		 * @author Francesco Licandro
 		 */
 		public function add_tabs( $tabs ) {
-			$tabs['style'] = __( 'Style', 'yith-woocommerce-added-to-cart-popup' );
-			$tabs['exclusions-prod'] = __( 'Product Exclusion List', 'yith-woocommerce-added-to-cart-popup' );
-			$tabs['exclusions-cat'] = __( 'Category Exclusion List', 'yith-woocommerce-added-to-cart-popup' );
+			 $tabs['style'] = __( 'Customize Your Design Style', 'yith-woocommerce-added-to-cart-popup' );
+			// $tabs['exclusions-prod'] = __( 'Product Exclusion List', 'yith-woocommerce-added-to-cart-popup' );
+			// $tabs['exclusions-cat'] = __( 'Category Exclusion List', 'yith-woocommerce-added-to-cart-popup' );
 
 			return $tabs;
 		}
